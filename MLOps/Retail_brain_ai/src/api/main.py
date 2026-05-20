@@ -4,7 +4,7 @@ import numpy as np
 
 app = FastAPI()
 
-model = joblib.load(r'D:\Dharmik\Data Scientist(Course)\projects\ML\Retail_brain_ai\models\churn_model.pkl')
+model = joblib.load('models/churn_model.pkl')
 
 @app.get("/")
 def home():
