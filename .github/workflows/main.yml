@@ -1,0 +1,21 @@
+name: Deploy FastAPI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Checkout Repository
+      uses: actions/checkout@v5
+
+    - name: Trigger FastAPI Deployment
+      run: |
+        curl "$FASTAPI_RENDER_HOOK"
+      env:
+        FASTAPI_RENDER_HOOK: ${{ secrets.FASTAPI_RENDER_HOOK }}
