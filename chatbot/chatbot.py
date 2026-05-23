@@ -29,7 +29,8 @@ tools = [get_all_courses,get_courses_detail]
 
 llm = ChatGoogleGenerativeAI(
     model = "gemini-2.5-flash",
-    temperature = 0
+    temperature = 0,
+    google_api_key=os.getenv("GEMINI_API_KEY")
 )
 
 agent = create_agent(
