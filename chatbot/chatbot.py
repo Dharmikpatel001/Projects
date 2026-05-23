@@ -1,9 +1,13 @@
 import os
 import requests
 from dotenv import load_dotenv
+from pathlib import Path
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain.tools import tool
 from langchain.agents import create_agent
+
+# venv\Scripts\activate
+# deactivate
 
 load_dotenv()
 
@@ -29,8 +33,7 @@ tools = [get_all_courses,get_courses_detail]
 
 llm = ChatGoogleGenerativeAI(
     model = "gemini-2.5-flash",
-    temperature = 0,
-    google_api_key=os.getenv("GEMINI_API_KEY")
+    temperature = 0
 )
 
 agent = create_agent(
